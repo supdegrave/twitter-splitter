@@ -19,33 +19,29 @@
 						<li>
 							<input type="radio" 
 									name="DelimiterStyle" 
-									id="x-of-y-brackets"
-									value="[x/y]"
+									id="XYbrackets"
 									checked />
-							<label for="x-of-y-brackets">[1/3]</label>
+							<label for="XYbrackets">[1/3]</label>
 						</li>
 						<li>
 							<input type="radio" 
 									name="DelimiterStyle" 
-									id="x-of-y-no-brackets"
-									value="x/y" />
-							<label for="x-of-y-no-brackets">1/3</label>
+									id="XYplain" />
+							<label for="XYplain">1/3</label>
 						</li>
 						<li>
 							<input 
 									type="radio" 
 									name="DelimiterStyle" 
-									id="x-colon"
-									value="x:" />
-							<label for="x-colon">1:</label>
+									id="Xcolon" />
+							<label for="Xcolon">1:</label>
 						</li>
 						<li>
 							<input 
 									type="radio" 
 									name="DelimiterStyle" 
-									id="x-only"
-									value="x" />
-							<label for="x-only">1</label>
+									id="Xonly" />
+							<label for="Xonly">1</label>
 						</li>
 					</ul>
 				</div>
@@ -56,15 +52,13 @@
 						<li>
 							<input type="radio" 
 									name="DelimiterLocation" 
-									id="location-beginning"
-									value="Beginning" />
+									id="location-beginning" />
 									<label for="location-beginning">Beginning</label>
 						</li>
 						<li>
 							<input type="radio" 
 									name="DelimiterLocation" 
 									id="location-end"
-									value="End"
 									checked />
 									<label for="location-end">End</label>
 						</li>
@@ -78,15 +72,13 @@
 							<input type="radio" 
 									name="BreakOnSentenceEnd" 
 									id="break-on-sentence-end-yes"
-									value="Yes" 
 									checked />
 									<label for="break-on-sentence-end-yes">Yes</label>
 						</li>
 						<li>
 							<input type="radio" 
 									name="BreakOnSentenceEnd" 
-									id="break-on-sentence-end-no"
-									value="No" />
+									id="break-on-sentence-end-no" />
 									<label for="break-on-sentence-end-no">No</label>
 						</li>
 					</ul>
@@ -98,8 +90,8 @@
 		<div class="table" id="writing-panel">
 			<div class="row">
 				<div class="cell input">
-					<textarea id="input" placeholder="Enter extended tweet text.">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</textarea>
-          <!-- <textarea id="input" placeholder="Enter extended tweet text.">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</textarea> -->
+          <!-- <textarea id="input" placeholder="Enter extended tweet text.">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</textarea> -->
+          <textarea id="input" placeholder="Enter extended tweet text.">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</textarea>
 				</div>
 				<div class="cell output">
 					<textarea id="output" readonly></textarea>
