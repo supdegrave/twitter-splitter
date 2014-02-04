@@ -1,0 +1,62 @@
+html, 
+body,
+ul, 
+li {
+  margin: 0px; 
+  padding: 0px;
+}
+
+.table { display: table; }
+.row { display: table-row; }
+.cell {
+  display: table-cell;
+/*  vertical-align: top;*/
+  padding: 0 0.125em;
+}
+
+div#container {
+  margin: 0.5em auto;
+  max-width: 800px;
+}
+
+#input,
+#output {
+  height: 100%;
+  width: 99%;
+  border: 1px solid #ccc;
+  font-size: 90%;
+  font-family: Helvetica, Arial, Verdana, sans-serif;
+  outline-color: transparent; 
+  outline-style: none;
+  /* don't set border onfocus */
+}
+
+div.table {
+  width: 100%;
+}
+
+div#writing-panel {
+  height: 300px;
+  margin-top: 1em;
+}
+
+div.input,
+div.output {
+  width: 50%;
+  padding: 3px;
+}
+
+ul,
+ul > li {
+  list-style: none;
+  list-style-type: none;
+}
+
+ul.user-settings-horizontal > li {
+  display: inline;
+}
+
+ul.user-settings li {
+  display: block;
+}
+
