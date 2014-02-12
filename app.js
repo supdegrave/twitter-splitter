@@ -8,7 +8,7 @@ var Position = { Any: 'any', Start: 'start', End: 'end' },
     },
     
     Settings = {    
-      DelimiterStyle     : Delimiters.XYbrackets.value,
+      DelimiterStyle     : Delimiters.XYbrackets,
       DelimiterLocation  : Position.End,
       BreakOnSentenceEnd : true
     }, 
@@ -23,7 +23,15 @@ $( function() {
   });
 
   $('input:radio[name=DelimiterStyle]').change( function() { 
-    Settings.DelimiterStyle = Delimiters[this.id].value;
+    Settings.DelimiterStyle = Delimiters[this.id];
+    
+    if (Settings.DelimiterStyle === Delimiters.Xcolon) {
+      $('input#location-beginning').attr('checked', true);
+      Settings.DelimiterLocation = Position.Start;
+    }
+    
+    $('input#location-end').attr('disabled', (Settings.DelimiterStyle === Delimiters.Xcolon));
+    
     tweetify();
   });
 
@@ -38,17 +46,18 @@ $( function() {
   });
 });
 
-function tweetify() {
+function tweetify() { 
   var message         = input.val(),
       messages        = [],
       tweetLength     = 140, // twitter length limit 
-      delimiterLength = Settings.DelimiterStyle.length + 1, // add 1 for whitespace 
+      delimiterMask   = Settings.DelimiterStyle.value, 
+      delimiterLength = delimiterMask.length + 1, // add 1 for whitespace 
       len             = tweetLength - delimiterLength,
       newline, sentence, slicePoint, retval;
 
   if (message.length > len) {
     while (message.length != 0) {
-      newline = message.lastIndexOf('\n', len);
+      newline  = message.lastIndexOf('\n', len);
       sentence = message.lastIndexOf('. ', len);
 
       slicePoint = (-1 !== newline) 
@@ -71,13 +80,13 @@ function tweetify() {
   retval = (1 === messages.length) 
   ? messages[0] 
   : $.map( messages, function(value, index) {
-    var delimiter = Settings.DelimiterStyle
-                    .replace('x', index + 1)
-                    .replace('y', messages.length);
-                    
-    return Position.End == Settings.DelimiterLocation 
-      ? value.trim() + " " + delimiter
-        : delimiter + " " + value.trim()
+    var delimiter, tweet;
+    delimiter = delimiterMask.replace('x', index + 1).replace('y', messages.length);
+    tweet = [value.trim(), delimiter];
+    
+    return Position.End === Settings.DelimiterLocation 
+      ? tweet.join(' ') 
+        : tweet.reverse().join(' ');
   }).join('\n');
   
   $('#output').val(retval);
