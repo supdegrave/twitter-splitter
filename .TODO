@@ -1,0 +1,18 @@
+- add functionality to only allow some masks at DelimiterLocation = 'Beginning' (such as '1:')
+
+- event observer on Settings changes, call tweetify()
+
+- responsive: em calcs for sizes, media queries
+
+- add tooltip help for settings 
+
+- t.co link wrapping: https://dev.twitter.com/docs/tco-link-wrapper/faq
+
+- 3-leg oauth: https://dev.twitter.com/docs/auth/3-legged-authorization
+
+- url encoding ?? 
+- use zepto instead of jquery ?? 
+  - document.ready, css selectors, $.each, $.map 
+
+- http://unwrongest.com/projects/elastic/ 
+

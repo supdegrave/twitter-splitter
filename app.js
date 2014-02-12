@@ -21,25 +21,21 @@ $( function() {
   input.bind('input propertychange', function(e) {
     tweetify();
   });
-  
-  // bind radio group change handlers 
-  $.each( ['DelimiterStyle', 'DelimiterLocation', 'BreakOnSentenceEnd'], function (key, value) {
-    $('input:radio[name=' + value +']').change( function() { 
-      switch(value) {
-        case "DelimiterStyle":
-          Settings.DelimiterStyle = Delimiters[this.id].value;
-          break;
-        case "DelimiterLocation":
-          Settings.DelimiterLocation = this.id.slice(this.id.indexOf('-') + 1);
-          break;
-        case "BreakOnSentenceEnd":
-          Settings.BreakOnSentenceEnd = !!this.id.match("yes")
-          break;
-      }
-      
-      tweetify();
-    });
-  }); 
+
+  $('input:radio[name=DelimiterStyle]').change( function() { 
+    Settings.DelimiterStyle = Delimiters[this.id].value;
+    tweetify();
+  });
+
+  $('input:radio[name=DelimiterLocation]').change( function() { 
+    Settings.DelimiterLocation = this.id.slice(this.id.indexOf('-') + 1);
+    tweetify();
+  });
+
+  $('input:radio[name=BreakOnSentenceEnd]').change( function() { 
+    Settings.BreakOnSentenceEnd = !!this.id.match("yes")
+    tweetify();
+  });
 });
 
 function tweetify() {
