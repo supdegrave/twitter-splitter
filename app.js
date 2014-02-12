@@ -13,6 +13,8 @@ var Position = { Any: 'any', Start: 'start', End: 'end' },
       BreakOnSentenceEnd : true
     }, 
     
+    MODE = 'debug',
+    
     input;
 
 $( function() {
@@ -23,6 +25,7 @@ $( function() {
   });
 
   $('input:radio[name=DelimiterStyle]').change( function() { 
+    debug(this);
     Settings.DelimiterStyle = Delimiters[this.id];
     
     if (Settings.DelimiterStyle === Delimiters.Xcolon) {
@@ -36,11 +39,13 @@ $( function() {
   });
 
   $('input:radio[name=DelimiterLocation]').change( function() { 
+    debug(this);
     Settings.DelimiterLocation = this.id.slice(this.id.indexOf('-') + 1);
     tweetify();
   });
 
   $('input:radio[name=BreakOnSentenceEnd]').change( function() { 
+    debug(this);
     Settings.BreakOnSentenceEnd = !!this.id.match("yes")
     tweetify();
   });
@@ -90,4 +95,13 @@ function tweetify() {
   }).join('\n');
   
   $('#output').val(retval);
+}
+
+function debug() {
+  if ('debug' === MODE) {
+    console.log(arguments);
+    // arguments.forEach( function(arg) {
+    //   console.log(arg);
+    // });
+  }
 }
